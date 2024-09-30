@@ -43,27 +43,7 @@ ul.nav a:hover {
 ul.nav li {
     display:inline-block;
 }
-.mobile {
-    display:none;
-}
-@media(max-width:650px) {
-  .no_mobile {
-    display:none;
-  }
-  .mobile {
-    display:block;
-  }
-  h1 {
-    font-size:2em;
-  }
 
-  #donation_banner {
-    font-size:50px;
-  }
-  #donation_banner_items {
-    font-size:30px;
-  }
-}
 #donation_banner {
     background-image:url(images/donation_banner_dog.jpg);
     background-size:cover;
@@ -125,3 +105,31 @@ table .table_right {
     /* border-left:thick double mediumslateblue; */
     border-bottom:thick double mediumslateblue;
 }
+.mobile {
+    display:none;
+}
+@media(max-width:900px) {
+    .no_mobile {
+      display:none;
+    }
+    .mobile {
+      display:block;
+    }
+    h1 {
+      font-size:2em;
+    }
+    ul.nav li {
+      width:80px;
+    }
+    ul.nav a {
+      width:80px;
+      padding:0;
+      font-size:15px;
+    }
+    #donation_banner {
+      font-size:50px;
+    }
+    #donation_banner_items {
+      font-size:30px;
+    }
+  }
