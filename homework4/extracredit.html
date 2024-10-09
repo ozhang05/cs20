@@ -21,6 +21,7 @@
             <img src="hotdogstandlogo.jpeg" class="logo"/>
         </div>
         <h1>Joe's Hotdog Stand</h1>
+        <div>(Extra Credit)</div>
     </div>
 
 
@@ -40,7 +41,7 @@
         const counts = {};
 
         for (let item in prices) {
-            let quantity = parseInt(prompt('Enter quantities for ${item}, price is $${showMoney(prices[item])}'));
+            let quantity = parseInt(prompt('Enter quantities for ' + item));
             counts[item] = quantity;
         }
         // counts["hotdogs"] = parseInt(prompt("How many hotdogs do you want?"));
