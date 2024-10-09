@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Joe's Hotdog Stand</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const prices = {
+            "hotdog":4.8,
+            "fry":3.95,
+            "drink":1.99
+        };
+
+        discountAmount = 0.1;
+        salesTax = 0.0625;
+    </script>
+  </head>
+  <body>
+
+    <div class="header">
+        <div class="logoContainer">
+            <img src="hotdogstandlogo.jpeg" class="logo"/>
+        </div>
+        <h1>Joe's Hotdog Stand</h1>
+    </div>
+
+
+    <script>
+        function showMoney(money) {
+            let amountString = (Math.round(money * 100) / 100).toString();
+
+            if (amountString.indexOf('.') === -1) {
+                // If no decimal point, add ".00"
+                amountString += '.00';
+            } else if (amountString.split('.')[1].length === 1) {
+                // If only one decimal place, add one more zero
+                amountString += '0';
+            }
+            return amountString;
+        }
+        const counts = {};
+
+        for (let item in prices) {
+            let quantity = parseInt(prompt('Enter quantities for ${item}, price is $${showMoney(prices[item])}'));
+            counts[item] = quantity;
+        }
+        // counts["hotdogs"] = parseInt(prompt("How many hotdogs do you want?"));
+        // counts["fries"] = parseInt(prompt("How many fries do you want?"));
+        // counts["drinks"] = parseInt(prompt("How many drinks do you want?"));
+
+        console.log(counts["hotdog"]);
+        console.log(counts["fry"]);
+        console.log(counts["drink"]);
+
+        subtotal = 0;
+        for (let item in prices) {
+            subtotal += counts[item] * prices[item];
+        }
+
+        discountApplicable = false;
+        totalPrice = subtotal;
+        if (subtotal >= 25) {
+            totalPrice = subtotal * (1 - discountAmount);
+            discountApplicable = true;
+        }
+
+        totalPrice *= (1 + salesTax);
+
+        console.log(subtotal);
+        console.log(totalPrice);
+        console.log(showMoney(totalPrice));
+    </script>
+
+    <table class="split">
+        <tr>
+            <td class="description">
+                Hotdog Count: <script>document.write(counts["hotdog"])</script>
+            </td>
+            <td class="description">
+                Cost: $<script>document.write(showMoney(counts["hotdog"] * prices["hotdog"]))</script>
+            </td>
+        </tr>
+        <tr>
+            <td class="description">
+                Fry Count: <script>document.write(counts["fry"])</script>                
+            </td>
+            <td class="description">
+                Cost: $<script>document.write(showMoney(counts["fry"] * prices["fry"]))</script>
+            </td>
+        </tr>
+        <tr>
+            <td class="description">
+                Drink Count: <script>document.write(counts["drink"])</script>
+            </td>
+            <td class="description">
+                Cost: $<script>document.write(showMoney(counts["drink"] * prices["drink"]))</script>
+            </td>
+        </tr>
+    </table>
+    <div class="receipt">
+        Subtotal: $<script>document.write(showMoney(subtotal))</script>
+    </div>
+    <div class="receipt">
+        Discount: 
+        <script>
+            if (discountApplicable) {
+                document.write("Saving $" + showMoney(discountAmount * subtotal) + " (" + discountAmount * 100 + "% discount!)");
+            } else {
+                document.write("No discount, spend $" + showMoney(25 - subtotal) + " more to get a " + discountAmount * 100 + "% discount");
+            }
+        </script>
+    </div>
+    <div class="receipt">
+        Tax: 
+        <script>
+            document.write("$" + showMoney(salesTax * subtotal));
+        </script>
+    </div>
+    <div class="receipt">
+        Total Price: $<script>document.write(showMoney(totalPrice));</script>
+    </div>
+  </body>
+</html>
