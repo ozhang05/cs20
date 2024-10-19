@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tic Tac Toe (TTT4)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="header">
+        <h1>Tic Tac Toe (TTT4)</h1>
+    </div>
+
+    <ul class="nav">
+        <li><a href="index.html">My Solution</a></li>
+        <li><a href="ttt1.html">TTT1</a></li>
+        <li><a href="ttt2.html">TTT2</a></li>
+        <li><a href="ttt3.html">TTT3</a></li>
+        <li><a href="ttt4.html">TTT4</a></li>
+    </ul>
+
+    <div id = "gameStatus"></div>
+
+    <div class = "square-container">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i=0; i<NUM_SQUARES; i++) {
+                id = "sq"+i;
+                document.write( "<div class='square' id='" + id + "'></div>" );
+            }
+        </script>
+    </div>
+
+    <div id = "reset">Reset the game</div>
+
+    <script>
+      let currentPlayer;
+      let gameOver = false;
+
+      function handleClick(event) {
+        square = event.target;
+        squareId = square.id.replace("sq", "");
+
+        if (square.innerHTML !== "" || gameOver) {
+            return;
+        }
+
+        square.innerHTML = currentPlayer;
+        square.style.pointerEvents = "none"
+
+        const squares = document.querySelectorAll('.square');
+        let moves = [];
+        squares.forEach((square, index) => {
+            moves[index] = square.innerHTML === "" ? "-" : square.innerHTML;
+        });
+
+        console.log(moves);
+
+        winConditions = [
+            moves[0] + moves[1] + moves[2],
+            moves[3] + moves[4] + moves[5],
+            moves[6] + moves[7] + moves[8],
+            moves[0] + moves[3] + moves[6],
+            moves[1] + moves[4] + moves[7],
+            moves[2] + moves[5] + moves[8],
+            moves[0] + moves[4] + moves[8],
+            moves[2] + moves[4] + moves[6]
+        ];
+
+        console.log(winConditions);
+
+        let winner = winConditions.find(condition => condition === "XXX" || condition === "OOO");
+        if (winner) {
+            gameOver = true;
+            document.getElementById("gameStatus").innerText = "Player " + currentPlayer + " wins!";
+            return;
+        }
+
+        // Check for a stalemate (if no "-" is found in the moves array)
+        if (!moves.includes("-")) {
+            gameOver = true;
+            document.getElementById("gameStatus").innerText = "Stalemate! It's a draw.";
+            return;
+        }
+
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        document.getElementById("gameStatus").innerText = "Player's turn: " + currentPlayer;
+    }
+
+      function initializeGame() {
+          gameOver = false;
+          currentPlayer = Math.random() < 0.5 ? "X" : "O";
+          document.getElementById("gameStatus").innerText = "Player " + currentPlayer + "'s turn: ";
+
+          for (let i = 0; i < NUM_SQUARES; i++) {
+              const square = document.getElementById("sq" + i);
+              square.innerHTML = "";
+              square.style.pointerEvents = "auto";
+              square.addEventListener("click", handleClick);
+          }
+      }
+
+      document.getElementById("reset").addEventListener("click", function() {
+          initializeGame();
+      });
+
+      initializeGame();
+  </script>
+  </body>
+</html>
+
+

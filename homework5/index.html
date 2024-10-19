@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        currentTurn = 0;
+        maxTurn = 9;
+        gameOver = false;
+
+        function findWinner(x, y, value) {
+            let horiWin = true;
+            let vertWin = true;
+            let diagWinOne = true;
+            let diagWinTwo = true;
+            for (let i = 1; i < 4; i++) {
+                if (document.getElementById(i + "." + y).innerHTML != value) {
+                    horiWin = false;
+                }
+                if (document.getElementById(x + "." + i).innerHTML != value) {
+                    vertWin = false;
+                }
+            }
+
+            for (let i = 1; i < 4; i++) {
+                if (document.getElementById(i + "." + i).innerHTML != value) {
+                    console.log(i);
+                    diagWinOne = false;
+                }
+                if (document.getElementById(i + "." + (4 - i)).innerHTML != value) {
+                    console.log(i);
+                    diagWinTwo = false;
+                }
+            }
+            return horiWin || vertWin || diagWinOne || diagWinTwo;
+        }
+
+        function makeMove(x, y) {
+            if (gameOver) {
+                return;
+            }
+
+            if (document.getElementById(x + "." + y).innerHTML == "X" || document.getElementById(x + "." + y).innerHTML == "O") {
+                return;
+            }
+
+            console.log(x, y);
+            currentMove = currentTurn++ % 2 == 0 ? "X" : "O";
+
+            document.getElementById(x + "." + y).innerHTML = currentMove;
+
+            if (findWinner(x, y, currentMove)) {
+                document.getElementById("gameStatus").innerHTML = "Player " + currentMove + " won! Congratulations!";
+                gameOver = true;
+                return;
+            } else {
+                document.getElementById("gameStatus").innerHTML = "Player " + (currentTurn % 2 == 0 ? "X" : "O") + "'s Turn";
+            }
+
+            if (currentTurn == maxTurn)  {
+                gameOver = true;
+                document.getElementById("gameStatus").innerHTML = "Stalemate... Play again?";
+            }
+        }
+
+        function resetGame() {
+            gameOver = false;
+            currentTurn = 0;
+            document.getElementById("gameStatus").innerHTML = "Player X's Turn";
+
+            for (let x = 1; x < 4; x++) {
+                for (let y = 1; y < 4; y++) {
+                    document.getElementById(x + "." + y).innerHTML = "";
+                }
+            }
+        }
+    </script>
+  </head>
+  <body>
+
+    <div class="header">
+        <h1>Tic Tac Toe</h1>
+    </div>
+
+    <ul class="nav">
+        <li><a href="index.html">My Solution</a></li>
+        <li><a href="ttt1.html">TTT1</a></li>
+        <li><a href="ttt2.html">TTT2</a></li>
+        <li><a href="ttt3.html">TTT3</a></li>
+        <li><a href="ttt4.html">TTT4</a></li>
+    </ul>
+
+    <div id = "gameStatus">Player X's Turn</div>
+
+    <table>
+        <tr>
+            <td id = "1.1" onclick = "makeMove(1, 1)"></td>
+            <td id = "1.2" onclick = "makeMove(1, 2)"></td>
+            <td id = "1.3" onclick = "makeMove(1, 3)"></td>
+        </tr>
+        <tr>
+            <td id = "2.1" onclick = "makeMove(2, 1)"></td>
+            <td id = "2.2" onclick = "makeMove(2, 2)"></td>
+            <td id = "2.3" onclick = "makeMove(2, 3)"></td>
+        </tr>
+        <tr>
+            <td id = "3.1" onclick = "makeMove(3, 1)"></td>
+            <td id = "3.2" onclick = "makeMove(3, 2)"></td>
+            <td id = "3.3" onclick = "makeMove(3, 3)"></td>
+        </tr>
+    </table>
+
+    <div id = "reset" onclick = "resetGame()">Reset the game</div>
+  </body>
+</html>
+
+

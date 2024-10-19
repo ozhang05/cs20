@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tic Tac Toe (TTT3)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <div class="header">
+        <h1>Tic Tac Toe (TTT3)</h1>
+    </div>
+
+    <ul class="nav">
+      <li><a href="index.html">My Solution</a></li>
+      <li><a href="ttt1.html">TTT1</a></li>
+      <li><a href="ttt2.html">TTT2</a></li>
+      <li><a href="ttt3.html">TTT3</a></li>
+      <li><a href="ttt4.html">TTT4</a></li>
+  </ul>
+
+    <div id = "gameStatus"></div>
+
+    <div class = "square-container">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i=0; i<NUM_SQUARES; i++) {
+                id = "sq"+i;
+                document.write( "<div class='square' id='" + id + "'></div>" );
+            }
+        </script>
+    </div>
+
+    <div id = "reset">Reset the game</div>
+
+    <script>
+      let currentPlayer;
+      let gameOver = false;
+
+      function handleClick(event) {
+          const square = event.target;
+          const squareId = square.id.replace("sq", "");
+
+          if (square.innerHTML !== "" || gameOver) {
+              return;
+          }
+
+          square.innerHTML = currentPlayer;
+          square.style.pointerEvents = "none";
+
+          alert("Square " + squareId + " clicked!");
+
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+          document.getElementById("gameStatus").innerText = "Player's turn: " + currentPlayer;
+      }
+
+      function initializeGame() {
+          gameOver = false;
+          currentPlayer = Math.random() < 0.5 ? "X" : "O";
+          document.getElementById("gameStatus").innerText = "Player " + currentPlayer + "'s turn: ";
+
+          for (let i = 0; i < NUM_SQUARES; i++) {
+              const square = document.getElementById("sq" + i);
+              square.innerHTML = "";
+              square.style.pointerEvents = "auto";
+              square.addEventListener("click", handleClick);
+          }
+      }
+
+      document.getElementById("reset").addEventListener("click", function() {
+          initializeGame();
+      });
+
+      initializeGame();
+  </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Tic Tac Toe (TTT2)</title>
+    <link rel="stylesheet" href="style.css">
+
+    
+  </head>
+  <body>
+
+    <div class="header">
+        <h1>Tic Tac Toe (TTT2)</h1>
+    </div>
+
+    <ul class="nav">
+        <li><a href="index.html">My Solution</a></li>
+        <li><a href="ttt1.html">TTT1</a></li>
+        <li><a href="ttt2.html">TTT2</a></li>
+        <li><a href="ttt3.html">TTT3</a></li>
+        <li><a href="ttt4.html">TTT4</a></li>
+    </ul>
+
+    <div id = "gameStatus">Player X's Turn</div>
+
+    <div class = "square-container">
+        <script>
+            const NUM_SQUARES = 9;
+            for (i=0; i<NUM_SQUARES; i++) {
+                id = "sq"+i;
+                document.write( "<div class='square' id='" + id + "'></div>" );
+            }
+        </script>
+    </div>
+
+    <script>
+        document.getElementById("sq2").innerHTML = "X";
+        document.getElementById("sq3").innerHTML = "O";
+    </script>
+
+    <div id = "winCondition">No win</div>
+  </body>
+</html>
+
+
