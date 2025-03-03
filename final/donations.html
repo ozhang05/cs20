@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Donate | Tufts University Book Clubs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .donation-section {
+            padding: 10px;
+            max-width: 800px;
+            border-radius: 5px;
+            margin: 20px auto;
+            width: 100%;
+            text-align: center;
+            background-color: #F4E5DD;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .donation-section h2 {
+            font-size: 1.8em;
+            color: #512C1D;
+            margin-bottom: 15px;
+        }
+
+        .donation-section p {
+            font-size: 1em;
+            color: #3172AE;
+            margin-bottom: 25px;
+        }
+
+        .donation-options {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .donation-options :hover h3 {
+            color: #512C1D;
+        }
+
+        .donation-column {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+
+            width: calc(25% - 10px);
+            min-width: 140px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .donation-column h3 {
+            font-size: 1.4em;
+            color: #3172AE;
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .donation-column p {
+            font-size: 0.9em;
+            color: #3E8EDE;
+        }
+
+        /*donation form*/
+        .donation-form {
+            margin-top: 40px;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .donation-form label {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .donation-form input[type="number"],
+        .donation-form input[type="email"],
+        .donation-form select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        .donation-form button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+        }
+
+        .donation-form button:hover {
+            background-color: #3b7bbf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <a href='homepage.html' id="logo"><img src="TBC.png"></a>
+            <a href='about.html' class="a">About</a>
+            <a href='blog.html' class="a">Blog</a>
+            <a href='index 2.html' class="a">Join</a>
+            <a href='bookstore.html' class="a">Book store</a>
+        </div>
+    </div>
+
+    <h1>Donations</h1>
+    <main>
+        <section class="donation-section">
+            <h2>Make a Difference with Your Donation</h2>
+            <p>Your generous support helps our book clubs grow, purchase
+                new materials, and provide engaging activities for
+                students at Tufts University.
+            </p>
+
+
+            <div class="donation-options">
+                <div class="donation-column">
+                    <h3>$25</h3>
+                    <p>Support club materials for a month.</p>
+                </div>
+                <div class="donation-column">
+                    <h3>$50</h3>
+                    <p>Fund one new book for the club.</p>
+                </div>
+                <div class="donation-column">
+                    <h3>$100</h3>
+                    <p>Sponsor a book club event.</p>
+                </div>
+                <div class="donation-column">
+                    <h3>Other Amount</h3>
+                    <p>Enter a custom donation amount below.</p>
+                </div>
+            </div>
+
+
+            <form action="submit_donation.php" method="post" class="donation-form">
+                <label for="amount">Donation Amount:</label>
+                <input type="number" id="amount" name="amount" min="1" required placeholder="Enter amount">
+                <label for="frequency">Donation Frequency:</label>
+                <select id="frequency" name="frequency">
+                    <option value="one-time">One-Time</option>
+                    <option value="monthly">Monthy</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="Your email">
+
+                <button type="submit">Donate Now</button>
+            </form>
+        </section>
+
+    </main>
+    <div class="footer">
+        <p>"Read a Book Today- Join Today"</p>
+        <p>&copy; 2024 Tufts University book Clubs. All right reserved.</p>
+        <ul id="contact">
+            <li><a href='contact.html'>Contact</a></li>
+            <li><a href='donations.html'>Donations</a></li>
+            <li> <a href='resources.html'>Resources</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

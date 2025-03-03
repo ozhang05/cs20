@@ -10,28 +10,32 @@
   <body>
     
     
-
+    <form name='abc'>
+      Choose: <input type='radio' name='pick' value = 'a'>A
+              <input type='radio' name='pick' value = 'b'>B
+              <input type='radio' name='pick' value = 'c'>C
+      <input type = 'submit' value='submit'>
+      </form>
+      
 
 
     
 <script language="javascript">
-  function accountClose() {
-
-     x = confirm("Do you want to close your account?");
-
-     if (x) {
-
-          alert("Your account is closed")
-
-     } else {
-
-          alert("Your account will NOT be closed at this time");
-
-     }    
-
+function Rock(color)
+{
+    this.color = color;
+    this.weight = 0;
+    this.display =  showRock;
 }
 
-accountClose();
+function showRock()
+{
+     s = this.weight;
+     return s;
+}
+
+r  = new Rock('grey');
+alert(r.display());
   </script>
     
 

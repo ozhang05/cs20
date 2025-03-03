@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Products JSON</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+        </style>
+        </style>
+        
+    </head>
+    <body>
+        <pre id="json-display"></pre>
+        <script>
+            products = {
+                "products": [
+                    {
+                    "name": "T-Shirt",
+                    "description": "Plain white T-Shirt",
+                    "price": 5,
+                    "categories": ["clothing", "tops"]
+                    },
+                    {
+                    "name": "Jean Jacket",
+                    "description": "Worn blue jean jacket",
+                    "price": 35,
+                    "categories": ["clothing", "tops"]
+                    },
+                    {
+                    "name": "Leather Shoes",
+                    "description": "Brown leather formal shoes",
+                    "price": 50,
+                    "categories": ["clothing", "footwear"]
+                    },
+                    {
+                    "name": "Bluetooth Speaker",
+                    "description": "Portable wireless speaker",
+                    "price": 25,
+                    "categories": ["electronics", "audio"]
+                    },
+                    {
+                    "name": "Headphones",
+                    "description": "Over-ear noise-cancelling headphones",
+                    "price": 100,
+                    "categories": ["electronics", "audio"]
+                    },
+                    {
+                    "name": "Phone",
+                    "description": "Modern Smartphone",
+                    "price": 1000,
+                    "categories": ["electronics"]
+                    },
+                    {
+                    "name": "Cargo Pants",
+                    "description": "Rugged cargo work pants",
+                    "price": 60,
+                    "categories": ["clothing", "bottoms"]
+                    },
+                    {
+                    "name": "Shorts",
+                    "description": "Basketball shorts",
+                    "price": 30,
+                    "categories": ["clothing", "bottoms"]
+                    }
+                ]
+            }
+
+            formattedJSON = JSON.stringify(products, null, 2);
+
+            document.getElementById('json-display').innerText = formattedJSON;
+        </script>
+    </body>
+</html>
+
+

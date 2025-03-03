@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sell a Book</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        h2 {
+            display: block;
+            color: #0c3356;
+            font-size: 30px;
+            text-align: center;
+            padding: 1%;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #3172AE;
+            font-weight: bold;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-container textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-container button {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: #3172AE;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #3E8EDE;
+        }
+
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 16px;
+            color: #3172AE;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('sellBookForm');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                try {
+                    const response = await fetch('/api/sell-book', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    window.location.href = 'bookstore.html';
+                } catch (error) {
+                    console.error('Error submitting the form:', error);
+                    alert('An error occurred. Please try again later.');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <a href='homepage.html' id="logo"><img src="TBC.png"></a>
+        <a href='about.html' class="a">About</a>
+        <a href='blog.html' class="a">Blog</a>
+        <a href='index 2.html' class="a">Join</a>
+        <a href='bookstore.html' class="a">Book Store</a>
+    </div>
+    <div class="form-container">
+        <h2>Sell a Book</h2>
+        <form id="sellBookForm">
+            <label for="bookName">Book Name</label>
+            <input type="text" id="bookName" name="bookName" placeholder="Enter the book name" required>
+
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" placeholder="Enter the author's name" required>
+
+            <label for="condition">Condition</label>
+            <select id="condition" name="condition" required>
+                <option value="New">New</option>
+                <option value="Like New">Like New</option>
+                <option value="Used">Used</option>
+                <option value="Worn">Worn</option>
+            </select>
+
+            <label for="price">Price ($)</label>
+            <input type="number" id="price" name="price" step="0.01" placeholder="Enter the price" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description"
+                placeholder="Add any additional details about the book"></textarea>
+
+            <button style="margin-bottom: 10px;">Connect PayPal</button>
+            <button type="submit">Submit</button>
+        </form>
+
+        <a href="bookstore.html" class="back-button">Back to Bookstore</a>
+    </div>
+</body>
+
+</html>

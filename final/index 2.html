@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Book Club Sign-Up</title>
+  <style>
+   
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #logo {
+            float: left;
+            text-align: center;
+        }
+
+    h2 {
+      color: #0c3356;
+      font-size: 36px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .form-container,
+    .new-club-form {
+      margin: 20px auto;
+      padding: 30px;
+      background-color: #c99f8f;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 15px 0 5px;
+      color: #171717;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #fff;
+    }
+
+    input[type="submit"],
+    .create-club-btn {
+      background-color: #2c6fbb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover,
+    .create-club-btn:hover {
+      background-color: #3E8EDE;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    .club-details {
+      background-color: #F4E5DD;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 10px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    #clubList {
+      margin-top: 20px;
+    }
+
+    .clubCard {
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 10px;
+      background-color: #F4E5DD;
+    }
+
+    .clubCard h4 {
+      margin: 0 0 10px;
+      color: #171717;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <a href="homepage.html" id="logo"><img src="TBC.png" alt="Book Club Logo"></a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="index 2.html">Join</a>
+    <a href="homepage.html">Home</a>
+  </div>
+
+  <h2>Join or Create a Book Club</h2>
+
+  <div class="form-container">
+    <form id="bookClubForm" onsubmit="return joinClub()">
+      <label for="clubSelection">Choose a Book Club:</label>
+      <select id="clubSelection" name="clubSelection">
+        <option value="">Select a club</option>
+      </select>
+      <div class="error" id="clubError">Please select a book club</div>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+
+      <label for="favoriteBook">Your Favorite Book:</label>
+      <textarea id="favoriteBook" name="favoriteBook" rows="3" placeholder="Talk about your favorite book"></textarea>
+
+      <input type="submit" value="Join Now">
+    </form>
+  </div>
+
+  <div class="new-club-form" id="newClubForm">
+    <form id="newBookClubForm" onsubmit="return addNewClub()">
+      <h3>Create a New Book Club</h3>
+      <label for="clubName">Club Name:</label>
+      <input type="text" id="clubName" name="clubName" placeholder="Enter the club name">
+
+      <label for="clubDescription">Description:</label>
+      <textarea id="clubDescription" name="clubDescription" rows="3" placeholder="Describe your book club"></textarea>
+
+      <label for="meetingTime">Meeting Time:</label>
+      <input type="text" id="meetingTime" name="meetingTime" placeholder="e.g., Every Tuesday at 6:00 PM">
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" name="startDate">
+
+      <label for="members">Initial Members:</label>
+      <input type="text" id="members" name="members" placeholder="Enter member names separated by commas">
+
+      <input type="submit" value="Create Club">
+    </form>
+  </div>
+
+  <div id="clubList"></div>
+
+  <script>
+    let clubs = [
+      { name: 'Fiction Lovers', description: 'Love stories from classic to modern fiction.', time: 'Wed at 7 PM', members: 'John, Sarah' },
+      { name: 'History Buffs', description: 'Explore history with other enthusiasts.', time: 'Thu at 6 PM', members: 'Emily, Jack' }
+    ];
+
+    function joinClub() {
+      const clubSelection = document.getElementById('clubSelection').value;
+
+      if (!clubSelection) {
+        document.getElementById('clubError').style.display = 'block';
+        return false;
+      }
+
+      document.getElementById('clubError').style.display = 'none';
+      alert(`You have successfully joined the ${clubSelection} club!`);
+      return false;
+    }
+
+    function addNewClub() {
+      const name = document.getElementById('clubName').value.trim();
+      const description = document.getElementById('clubDescription').value.trim();
+      const meetingTime = document.getElementById('meetingTime').value.trim();
+      const startDate = document.getElementById('startDate').value.trim();
+      const members = document.getElementById('members').value.trim();
+
+      if (name && description && meetingTime && startDate && members) {
+        const newClub = {
+          name,
+          description,
+          time: meetingTime,
+          members,
+        };
+
+        clubs.push(newClub);
+        updateClubDropdown();
+        displayClubDetails(newClub);
+        alert('New club added successfully!');
+      } else {
+        alert('Please fill in all fields.');
+      }
+
+      return false;
+    }
+
+    function updateClubDropdown() {
+      const dropdown = document.getElementById('clubSelection');
+      dropdown.innerHTML = '<option value="">Select a club</option>'; // Reset dropdown
+
+      clubs.forEach(club => {
+        const option = document.createElement('option');
+        option.value = club.name;
+        option.textContent = club.name;
+        dropdown.appendChild(option);
+      });
+    }
+
+    function displayClubDetails(club) {
+      const clubList = document.getElementById('clubList');
+      const clubCard = document.createElement('div');
+      clubCard.className = 'clubCard';
+
+      clubCard.innerHTML = `
+        <h4>${club.name}</h4>
+        <p><strong>Description:</strong> ${club.description}</p>
+        <p><strong>Meeting Time:</strong> ${club.time}</p>
+        <p><strong>Members:</strong> ${club.members}</p>
+      `;
+
+      clubList.appendChild(clubCard);
+    }
+
+    // Initialize club dropdown and display existing clubs on page load
+    window.onload = () => {
+      updateClubDropdown();
+      clubs.forEach(displayClubDetails);
+    };
+  </script>
+</body>
+</html>

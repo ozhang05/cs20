@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href = "products.css" ?>
+
+<products>
+    <product>
+        <name>T-Shirt</name>
+        <description>Plain white T-Shirt</description>
+        <price>5</price>
+        <categories>
+            <category>clothing</category>
+            <category>tops</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Jean Jacket</name>
+        <description>Worn blue jean jacket</description>
+        <price>35</price>
+        <categories>
+            <category>clothing</category>
+            <category>tops</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Leather Shoes</name>
+        <description>Brown leather formal shoes</description>
+        <price>50</price>
+        <categories>
+            <category>clothing</category>
+            <category>footwear</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Bluetooth Speaker</name>
+        <description>Portable wireless speaker</description>
+        <price>25</price>
+        <categories>
+            <category>electronics</category>
+            <category>audio</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Headphones</name>
+        <description>Over-ear noise-cancelling headphones</description>
+        <price>100</price>
+        <categories>
+            <category>electronics</category>
+            <category>audio</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Phone</name>
+        <description>Modern Smartphone</description>
+        <price>1000</price>
+        <categories>
+            <category>electronics</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Cargo Pants</name>
+        <description>Rugged cargo work pants</description>
+        <price>60</price>
+        <categories>
+            <category>clothing</category>
+            <category>bottoms</category>
+        </categories>
+    </product>
+
+    <product>
+        <name>Shorts</name>
+        <description>Basketball shorts</description>
+        <price>30</price>
+        <categories>
+            <category>clothing</category>
+            <category>bottoms</category>
+        </categories>
+    </product>
+</products>

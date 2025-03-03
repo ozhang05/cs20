@@ -1,0 +1,28 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>
+            PHP Demo
+        </h1>
+        
+        <br/>
+
+        <?php
+
+            $messages = array("they are great", "what the fuck", "sugma");
+
+            function getMessages() {
+                global $messages;
+                $r = rand(0, count($messages) - 1);
+                echo "number: $r<br>";
+                return $messages[$r];
+                
+            }
+
+            echo getMessages();
+
+        ?>
+    </body>
+</html>

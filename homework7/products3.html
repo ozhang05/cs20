@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .product {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #filter-section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="filter-section">
+    <select id="category-select">
+        <option value="">Select a category</option>
+    </select>
+    <button id="filter-button">Filter</button>
+</div>
+
+<div id="products"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Load the products from products.json
+        $.get("products.json", function(data) {
+            // Populate categories dropdown
+            const categories = new Set();
+            data.products.forEach(product => {
+                product.categories.forEach(category => categories.add(category));
+            });
+            
+            categories.forEach(category => {
+                $("#category-select").append(`<option value="${category}">${category}</option>`);
+            });
+
+            // Function to display products based on selected category
+            function displayProducts(selectedCategory) {
+                let productsHtml = "";
+                data.products.forEach(product => {
+                    if (!selectedCategory || product.categories.includes(selectedCategory)) {
+                        productsHtml += `<div class="product">${product.name}</div>`;
+                    }
+                });
+                $("#products").html(productsHtml);
+            }
+
+            // Display all products initially
+            displayProducts("");
+
+            // Filter products when the button is clicked
+            $("#filter-button").click(function() {
+                const selectedCategory = $("#category-select").val();
+                displayProducts(selectedCategory);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

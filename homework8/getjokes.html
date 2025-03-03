@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joke API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Get a Joke!</h1>
+    <p>Select a category and get a joke</p>
+
+    <select id="category">
+      <option value="Programming">Programming</option>
+      <option value="Miscellaneous">Miscellaneous</option>
+      <option value="Pun">Pun</option>
+      <option value="Spooky">Spooky</option>
+      <option value="Christmas">Christmas</option>
+    </select>
+
+    <button id="get-joke">Get Joke</button>
+
+    <div id="joke-container">
+      <p id="joke-text">Your joke will appear here.</p>
+    </div>
+  </div>
+
+  <script src="getjokes.js"></script>
+</body>
+</html>

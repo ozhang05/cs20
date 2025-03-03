@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Midterm: homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        /* General Text Styles */
+        h2 {
+            color: #0c3356;
+            font-size: 22px;
+            text-align: center;
+            padding: 1%;
+            margin: 80px;
+        }
+
+        /* Image Styling */
+        
+
+        #body_image {
+            display: block;
+            margin: 0 auto;
+            border-radius: 2%;
+            height: 400px;
+        }
+
+        .imageContainer {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        /* Button and Dropdown Styling */
+        #book_category,
+        #submit_query {
+            display: block;
+            margin: 0 auto;
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #3172AE;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        #submit_query {
+            background-color: #3172AE;
+            color: white;
+            cursor: pointer;
+        }
+
+        #submit_query:hover {
+            background-color: #3E8EDE;
+        }
+
+        /* Book Recommendation Section */
+        #book_section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .book {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /* margin: 20px 10px; */
+            /* padding: 20px; */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Book Text Styling */
+        .book_title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #0c3356;
+        }
+
+        .book_author {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .book_description {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        /* Book Cover Styling */
+        .book_cover {
+            width: 150px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px;
+        }
+
+        .button {
+            width: 150px;
+            height: 70px;
+            color: white;
+            background-color: #3172AE;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #3E8EDE;
+        }
+
+        #book-rec {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: 200px;
+        }
+
+        .book_recommendation {
+            text-align:center;
+            font-size:30;
+        }
+
+        .book {
+            display: inline-block;
+            width: 28%;
+            margin-left: 4%;
+        }
+
+        .book_title {
+            font-size: 30px;
+            text-align: center;
+            font-style: bold;
+        }
+
+        .book_author {
+            font-style: italic;
+            text-align: center;
+        }
+
+        .book-description {
+            position: relative;
+        }
+
+        .full-description {
+            display: none;
+            width: 100%;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .book_cover {
+            width: 300px;
+        }
+    </style>
+
+    <script>
+        function getUniqueBookIndex(usedIndices, totalBooks) {
+            let bookId;
+            do {
+                bookId = Math.floor(Math.random() * totalBooks);
+            } while (usedIndices.includes(bookId));
+            usedIndices.push(bookId);
+            return bookId;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <a href='homepage.html' id="logo"><img src="TBC.png"></a>
+            <a href='about.html' class="a">About</a>
+            <a href='blog.html' class="a">Blog</a>
+            <a href='bookstore.html' class="a">Book store</a>
+            <a href='index 2.html' class="a">Join</a>
+            <a href='homepage.html' class="a">Home</a>
+        </div>
+
+    <h1>Welcome to TBC!</h1>
+    <div class="imageContainer">
+        <img id = "body_image" src="homeimg.png" class="image">
+    </div>
+    <div
+        style="resize: both; overflow: auto; max-width: 800px; margin: 20px auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="color: #0c3356; font-size: 22px; text-align: center; margin: 0;">
+            TBC is Tufts Book Club! Join us for engaging discussions and a community of book lovers. Whether you're into
+            fiction, non-fiction, or poetry, there's something for everyone. Connect with fellow readers, explore
+            diverse
+            genres, and enjoy exclusive events! You should also check out our bookstore, where we have used books for
+            sale!
+        </h2>
+    </div>
+    <div style="text-align: center; margin: 20px;">
+        <a href="index 2.html"
+            style="display: inline-block; font-size: 20px; padding: 15px 30px; color: white; background-color: #3172AE; text-decoration: none; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            Join a club
+        </a>
+    </div>
+
+    <div class = "book_recommendation">
+        <h2>Get a book recommendation</h2>
+        <!-- <form action="/submit" method="POST" id="book-rec">
+            <label for="books">Choose a book genre:</label> -->
+        <select id="book_category" name="book_genre">
+            <option value="fiction">Fiction</option>
+            <option value="nonfiction">Non-Fiction</option>
+            <option value="science">Science</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="history">History</option>
+        </select>
+        <br><br>
+        <button id="submit_query" type="submit">Submit</button>
+
+        <!-- </form> -->
+    </div>
+
+    <div id="book_section">
+        <div class="book">
+            <div class="book_title"></div>
+            <div class="book_author"></div>
+            <div class="book-description">
+                <p class="truncated-description"></p>
+                <p class="full-description"></p>
+              </div>
+            <img src="" class="book_cover">
+        </div>
+        <div class="book">
+            <div class="book_title"></div>
+            <div class="book_author"></div>
+            <div class="book-description">
+                <p class="truncated-description"></p>
+                <p class="full-description"></p>
+              </div>
+            <img src="" class="book_cover">
+        </div>
+        <div class="book">
+            <div class="book_title"></div>
+            <div class="book_author"></div>
+            <div class="book-description">
+                <p class="truncated-description"></p>
+                <p class="full-description"></p>
+              </div>
+            <img src="" class="book_cover">
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>"Read a Book Today- Join Today"</p>
+        <p>&copy; 2024 Tufts University book Clubs. All right reserved.</p>
+        <ul id="contact">
+            <li><a href='contact.html'>Contact</a></li>
+            <li><a href='donations.html'>Donations</a></li>
+            <li> <a href='resources.html'>Resources</a></li>
+        </ul>
+    </div>
+    <script>
+        const searchButton = document.getElementById("submit_query");
+    const categorySelect = document.getElementById('book_category');
+    const maxDescriptionLength = 150;
+
+    searchButton.addEventListener('click', function () {
+    const category = categorySelect.value;
+
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:${category}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const bookSection = document.getElementById("book_section");
+            const books = bookSection.querySelectorAll(".book");
+
+            var usedIndices = [];
+            var totalBooks = data.items.length;
+
+            books.forEach((bookElement, index) => {
+                const bookIndex = getUniqueBookIndex(usedIndices, totalBooks);
+                const bookData = data.items[bookIndex].volumeInfo;
+
+                const title = bookElement.querySelector(".book_title");
+                const author = bookElement.querySelector(".book_author");
+                const truncatedDescription = bookElement.querySelector(".truncated-description");
+                const fullDescription = bookElement.querySelector(".full-description");
+
+                const cover = bookElement.querySelector(".book_cover");
+
+                title.textContent = bookData.title || "No title";
+                author.textContent = bookData.authors || "No authors";
+
+                let shortDescription = bookData.description || "No description";
+                if (shortDescription.length > maxDescriptionLength) {
+                    shortDescription = shortDescription.substring(0, maxDescriptionLength) + "...";
+                }
+                truncatedDescription.textContent = shortDescription;
+                fullDescription.textContent = bookData.description;
+
+                // bookElement.addEventListener('mouseover', () => {
+                //     truncatedDescription.style.display = "none";
+                //     fullDescription.style.display = "block";
+                // });
+
+                // bookElement.addEventListener('mouseout', () => {
+                //     truncatedDescription.style.display = "block";
+                //     fullDescription.style.display = "none";
+                // });
+
+                cover.setAttribute("src", bookData.imageLinks?.smallThumbnail);
+            });
+        })
+        .catch(error => console.log("Error fetching book images", error));
+    });
+    </script>
+</body>
+
+</html>

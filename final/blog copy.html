@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Club Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/CSS">
+      * {
+        font-family: 'Times New Roman', Times, serif, sans-serif;
+        }
+        .wide-back {
+            background-color: #F4E5DD;
+            height: 100%; 
+            width: 100%;
+        }
+        .header {
+            width: 100%;
+            min-height: 40vh;
+            background-color: #512C1D; /* Brown */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #F4E5DD; /* Cream */
+            font-size: 48px;
+            margin: 0;
+        }
+        
+        .home-heading{
+            width: 100%;
+            /*top: 50%;*/
+            transform: translateY(-50%);
+            color: #F4E5DD;
+            text-align: center;
+        }
+        html{
+            background-color: #3E8EDE;
+        }
+        .main-heading{
+            text-align: center;
+            color: #F4E5DD;
+            padding-top: 15%;
+            padding: 15%;
+            position: relative;
+        }
+        .test-row{
+            box-sizing: border-box;
+            background: #F4E5DD;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            padding: 2%;
+            box-sizing: border-box;
+            align-items: center;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        .test-row:last-child{
+            margin-bottom: 8%;
+        }
+        .test-row p h3{
+            justify-content: center;
+            font-size: 20px;
+        }
+        .test-row p{
+            font-size: 22px;
+            margin-top: 8%;
+            color: #512C1D;
+        }
+        .test-col{
+            display: flex;
+        }
+        .test-row h3{
+            font-size: 22px;
+            color: #3172AE;
+        }
+        .person-img{
+            justify-content: center;
+            margin-right: 3%;
+            border-radius: 10px;
+            height: 250px;
+            width: auto;
+        }
+        .blog h2{
+            text-align: center;
+            padding: 1%;
+            font-size: 50px;
+            color: #0c3356;
+        }
+        .col-text{
+            display: block;
+        }
+        @media(max-width: 950px){
+            .home-heading h1{
+                font-size: 17px;
+            }
+            .test-row{
+                text-align: center;
+                padding: 3%;
+                font-size: 10px;
+            }
+            .test-col p{
+                justify-content: space-between;
+                font-size: 12px;
+            }
+            .test-row h3{
+                font-size: 12px;
+            }
+            .test-row h3 p{
+                width: 10%;
+            }
+            .test-col{
+                display: inline;
+                padding: 3%;
+                font-size: 15px;
+            }
+            .person-img{
+                padding-top: 2%;
+                justify-content: center;
+            }
+        }
+        /* footer  */
+        .footer{
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #3172AE;
+            color: #F4E5DD;
+            font-size: 400;
+            margin-top: 20px;
+        }
+        .footer p{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+        <div class="content-container">
+            <div class="header">
+                <h1>BOOK CLUB BLOG</h1>
+            </div>
+            <div class="blog">
+                <h2>Blog Posts</h2>
+            <div class="test-row">
+                    <div class="test-col">
+                        <img src="img/student1.jpg" class="person-img">
+                        <div class="col-text">
+                        <h3>Atomic Habits by James Clear</h3>
+                        <p>"Okay, Atomic Habits? Lowkey gave me hope I could fix
+                            my life. You know how you say, 'I'll start the gym 
+                            tomorrow,' but tomorrow never shows up? Well, this 
+                            book gave me the push to make 'tomorrow' happen. Clear's 
+                            whole '1% better every day' thing makes change feel 
+                            actually doable, like a Python loop instead of an endless 
+                            while loop with no exit. Plus, the science of habit formation 
+                            is kinda cool - almost makes me wanna switch to psych (jk). 
+                            Solid read if you're juggling multiple deadlines and hoping 
+                            to develop better sleep habits. 9/10 but I still procrastinated 
+                            finishing it"</p>   
+                            <h3>- Oliver Callahan </h3>                       
+                        </div>
+                    </div>           
+                </div>        
+                <div class="test-row">
+                    <div class="test-col">
+                        <img src="img/student2.jpg" class="person-img">
+                        <div class="col-text">
+                            <h3>Beloved by Toni Morrison</h3>
+                            <p>"Listen, Beloved is not light reading. I started it thinking 
+                                I'd skim, but Morrison pulls you in with haunting prose and 
+                                themes that make your brain itch. The way it deals with trauma, memory, 
+                                and identity? Wild. I won't lie, it took me way longer to finish than I 
+                                planned, especially with a midterm breathing down my neck. But once you get 
+                                into it, it's worth every brain cell. Just don't read it all in one sitting 
+                                unless you wanna spiral into some deep reflection about past, present, and 
+                                future. 9/10, but be prepared to feel things you weren't ready for."</p>
+                            <h3>- Claudine Hays</h3>                                         
+                        </div>  
+                    </div>  
+                </div>
+
+                <div class="test-row">
+                    <div class="test-col">
+                        <img src="img/student3.jpg" class="person-img">
+                        <div class="col-text">
+                            <h3>Dune by Frank Herbert</h3>
+                            <p>"First of all, Dune is like a fever dream. The world-building? Insane. 
+                                I had to keep a notebook next to me just to remember who's who and what's what. 
+                                But there's something about Herbert's weird, sprawling narrative that hooks you in. 
+                                It's like the Game of Thrones of sci-fi: full of politics, betrayal, and spice (literally). 
+                                Definitely not a 'quick read between classes' kinda book, though. But if you've got some 
+                                time and like pondering life, power, and sandworms, it's worth the grind. 8/10, but you 
+                                might need caffeine to get through it."
+
+                            </p> 
+                            <h3>- Megan Bryant</h3> 
+                        </div>
+                    </div>
+                </div>
+                <div class="test-row">
+                    <div class="test-col">
+                        <img src="img/student5.jpg" class="person-img">
+                        <div class="col-text">
+                            <h3>The Alchemist by Paulo Coelho</h3>
+                            <p>"I picked this up because half the people in my dorm rave about it 
+                                like it's gospel. It's a short read, but Coelho's whole 'personal legend' 
+                                concept got me thinking about my major and whether I'm actually on the right 
+                                path (spoiler: I have no idea). Santiago's journey of self-discovery felt a bit  
+                                too smooth, though. Like, bro, real life isn't that deep — or is it? I'm still 
+                                not sure. But it's one of those books that makes you feel better about not 
+                                having your life together, so that's a win. 8/10, but don't expect it to 
+                                solve all your problems."</p>          
+                            <h3>- Eileen Holder</h3>
+                        </div>
+                    </div>             
+                </div>
+                <div class="test-row">
+                    <div class="test-col">
+                        <img src="img/student4.jpg" class="person-img">
+                        <div class="col-text">
+                            <h3>How to Win Friends and Influence People by Dale Carnegie</h3>
+                            <p>"Not gonna lie, I picked this up hoping it would teach me how to network 
+                                better. And... it kinda did? Some of the advice is basic ('smile more' — okay, Dale), 
+                                but other tips on empathy and listening actually work. If you’ve got anxiety about 
+                                networking events or interviews, this book is like a cheat sheet for making small 
+                                talk without sounding awkward. It’s a bit old-school, but hey, some strategies are 
+                                timeless. 7/10 — definitely helpful, but also made me realize how much effort 
+                                socializing takes."</p>  
+                            <h3>- Gavin Moreno</h3> 
+                        </div>
+                    </div>           
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer  -->
+    <div class="footer">
+    <p>Tufts Book Club</p>
+    </div>
+</body>
+</html>
+
